@@ -49,8 +49,16 @@
             foreach ($users as $user => $user_password) {
                 if(hash_equals($user_password, crypt($_POST['pswd'], $user_password)))
                 {
-                    $string = "payload={\"username\": \"".$user."\", \"text\": \"***".$user." dice:*** ".$_POST['text']."\"}";
-                    $status = enviarMensaje($string);
+                    if($user == "Facu"){
+                        $string = "payload={\"username\": \"@".$user."\", \"text\": \"## [![ES MALA JUNTA NENA...](http://scontent.cdninstagram.com/t51.2885-15/s480x480/e35/13549493_1060050124082715_458734665_n.jpg?ig_cache_key=MTI4MzczMDc4NDgzMDA0ODA1Ng%3D%3D.2)](https://www.youtube.com/watch?v=JbPPXPIKfkE) ***".$user." dice:*** ".$_POST['text']."\"}";
+                        $status = enviarMensaje($string);
+
+                    }
+                    else{
+                        $string = "payload={\"username\": \"@".$user."\", \"text\": \"## ***".$user." dice:*** ".$_POST['text']."\"}";
+                        $status = enviarMensaje($string);
+
+                    }
                 }
 
             }
