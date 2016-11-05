@@ -1,0 +1,75 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+
+}
+body{
+    padding: 1em;
+}
+
+label{
+    font-size: 10vw;
+}
+
+*::-webkit-input-placeholder {
+   color: white;
+}
+
+*:-moz-placeholder {
+   color: white;
+}
+
+*::-moz-placeholder {
+   color: white;
+}
+
+*:-ms-input-placeholder {
+   color: white;
+}
+
+form input, textarea{
+    width: 100%;
+    position: relative;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    display: block;
+    font-size: 10vw;
+    margin: 0.5em 0 1em 0;
+    background-color: #B3D455;
+    /*padding: 0.5em;*/
+}
+
+input[type="submit"]{
+    padding: 0.5em;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-bottom: 0;
+}
+
+.status-ok{
+    position: fixed;
+    font-size: 75px;
+    line-height: 150px;
+    text-align: center;
+    right: 10px;
+    background: #628E15;
+    border-radius: 150px;
+    height: 150px;
+    width: 150px;
+}
+
+.status-fail{
+    position: fixed;
+    font-size: 58px;
+    line-height: 150px;
+    text-align: center;
+    right: 10px;
+    background: red;
+    border-radius: 150px;
+    height: 150px;
+    width: 150px;
+}
