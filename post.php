@@ -2,6 +2,7 @@
 
     ini_set('error_reporting', E_ALL);
     require_once('users.php');
+
     if(!function_exists('hash_equals'))
     {
         function hash_equals($str1, $str2)
@@ -22,7 +23,7 @@
             }
         }
     }
-    
+
     function enviarMensaje($message){
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, 'https://coopes.facttic.org.ar/hooks/9rkswiwcpp8y3ees65rdj77frr');
@@ -55,11 +56,11 @@
             }
         }
 
-        if($status == false){
-            header("Location: index.php?status=ok");
+        if($status != false){
+            header("Location: index.php?status=ok&code=".$status);
         }
         else{
-            header("Location: index.php?status=fail");
+            header("Location: index.php?status=fail&code=".$status);
         }
     }
 
