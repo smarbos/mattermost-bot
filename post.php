@@ -4,7 +4,7 @@
     require_once('users.php');
     $response = null;
     $user_name = null;
-
+    session_start();
     /*
         Fallback para versiones viejas de PHP que no soportan hash_equals.
     */
@@ -89,14 +89,20 @@
         }
 
         if($response['http_code']>=200 && $response['http_code']<300){
-            header("Location: index.php?status=ok&code=".$response['http_code']);
+            $_SESSION['status'] = 'ok';
+            $_SESSION['code'] = $response['http_code'];
+            header("Location: index.php");
         }
         else{
-            header("Location: index.php?status=fail&code=".$response['http_code']);
+            $_SESSION['status'] = 'fail';
+            $_SESSION['code'] = $response['http_code'];
+            header("Location: index.php");
             error_log("ERROR: ".$response['curl_response'], 1, "smarbos@gmail.com");
         }
         if($response['http_code'] == 666) {
-            header("Location: index.php?status=bad-pswd&code=".$response['http_code']);
+            $_SESSION['status'] = 'bad-pswd';
+            $_SESSION['code'] = 666;
+            header("Location: index.php");
         }
     }
 

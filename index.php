@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<?php
+    session_start();
+
+    // $_SESSION['status'] = null;
+    // $_SESSION['code'] = null;
+?>
 <html>
     <head>
         <meta charset="utf-8">
@@ -9,9 +15,12 @@
     <body>
         <div class="row">
             <div class="col-sm-12">
-                <?php if($_GET['status'] == 'ok'){ echo "<span class=\"status status-ok\">OK</span>"; } ?>
-                <?php if($_GET['status'] == 'fail'){ echo "<span class=\"status status-fail\">FAIL</span>"; } ?>
-                <?php if($_GET['status'] == 'bad-pswd'){ echo "<span class=\"status status-bad-pswd\"><span class=\"status-content\">WTF?</span></span>"; } ?>
+                <?php if($_SESSION['status'] == 'ok'){ echo "<span class=\"status status-ok\">OK</span>"; } ?>
+                <?php if($_SESSION['status'] == 'fail'){ echo "<span class=\"status status-fail\">FAIL</span>"; } ?>
+                <?php if($_SESSION['status'] == 'bad-pswd'){ echo "<span class=\"status status-bad-pswd\"><span class=\"status-content\">WTF?</span></span>"; } ?>
+                <?php
+                    $_SESSION['status'] = null;
+                ?>
                 <form class="" action="post.php" method="post">
                     <div class="row">
                         <div class="col-sm-12">
@@ -51,38 +60,9 @@ $('.inputs').keyup(function (e) {
  /*
      Fade out de los status cuando termina de cargar.
  */
- var something = (function() {
-    var executed = false;
-    return function () {
-        if (!executed) {
-            executed = true;
-            // do something
-        }
-    };
-})();
-
 $( document ).ready(function() {
     $( ".status" ).fadeOut( 6000, function() {
-        if(window.location.href != url_parts[0])
-        {
-            var oldURL = window.location.href;
-            var index = 0;
-            var newURL = oldURL;
-            index = oldURL.indexOf('?');
-            if(index == -1){
-                index = oldURL.indexOf('#');
-            }
-            if(index != -1){
-                newURL = oldURL.substring(0, index);
-            }
-            window.location.href = newURL;
-        }
-
 });
-
-var url = window.location.href;
-url_parts = url.split("?");
-console.log(url_parts[0]);
 
 });
 
