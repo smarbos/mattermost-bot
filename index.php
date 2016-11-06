@@ -9,8 +9,8 @@
     <body>
         <div class="row">
             <div class="col-sm-12">
-                <?php if($_GET['status'] == 'ok'){ echo "<span class=\"status-ok\">OK</span>"; } ?>
-                <?php if($_GET['status'] == 'fail'){ echo "<span class=\"status-fail\">FAIL</span>"; } ?>
+                <?php if($_GET['status'] == 'ok'){ echo "<span class=\"status status-ok\">OK</span>"; } ?>
+                <?php if($_GET['status'] == 'fail'){ echo "<span class=\"status status-fail\">FAIL</span>"; } ?>
                 <form class="" action="post.php" method="post">
                     <div class="row">
                         <div class="col-sm-12">
@@ -42,4 +42,11 @@ $('.inputs').keyup(function (e) {
          $('.inputs').eq(index).focus();
      }
  });
+
+ $( document ).ready(function() {
+     $( ".status" ).fadeOut( 6000, function() {
+       // Animation complete
+     });
+ });
+
 </script>
