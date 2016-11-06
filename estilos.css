@@ -43,7 +43,7 @@ form input, textarea{
 
 input[type="submit"]{
     padding: 0.5em;
-    position: absolute;
+    /*position: absolute;*/
     bottom: 0;
     left: 0;
     right: 0;
