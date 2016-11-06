@@ -52,24 +52,48 @@ input[type="submit"]{
 
 .status-ok{
     position: fixed;
-    font-size: 75px;
+    font-size: 18em;
+    font-weight: bolder;
     line-height: 150px;
     text-align: center;
     right: 10px;
     background: #628E15;
-    border-radius: 150px;
-    height: 150px;
-    width: 150px;
+    border-radius: 100vh;
+    height: 100vw;
+    width: 100vw;
+    top: 25%;
+    z-index: 999;
+    line-height: 100vw;
 }
 
 .status-fail{
     position: fixed;
-    font-size: 58px;
+    font-size: 18em;
+    font-weight: bolder;
     line-height: 150px;
     text-align: center;
     right: 10px;
-    background: red;
-    border-radius: 150px;
-    height: 150px;
-    width: 150px;
+    background: #E54028;
+    border-radius: 100vh;
+    height: 100vw;
+    width: 100vw;
+    top: 25%;
+    z-index: 999;
+    line-height: 100vw;
+}
+
+.status-bad-pswd{
+    position: fixed;
+    font-size: 18em;
+    font-weight: bolder;
+    line-height: 150px;
+    text-align: center;
+    right: 10px;
+    background: #01A4A4;
+    border-radius: 100vh;
+    height: 100vw;
+    width: 100vw;
+    top: 25%;
+    z-index: 999;
+    line-height: 100vw;
 }
