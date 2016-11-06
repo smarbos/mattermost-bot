@@ -38,11 +38,12 @@
         $data = curl_exec($ch);
         $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
-        return ($httpcode>=200 && $httpcode<300) ? $data : false;
+        return $httpcode;
     }
 
     if($_POST['enviar'])
     {
+        $text = preg_replace( "/\r|\n/", "", $_POST['text'] );
 
         if($_POST['pswd']){
 
@@ -50,21 +51,18 @@
                 if(hash_equals($user_password, crypt($_POST['pswd'], $user_password)))
                 {
                     if($user == "Facu"){
-                        $string = "payload={\"username\": \"@".$user."\", \"text\": \"## [![ES MALA JUNTA NENA...](http://scontent.cdninstagram.com/t51.2885-15/s480x480/e35/13549493_1060050124082715_458734665_n.jpg?ig_cache_key=MTI4MzczMDc4NDgzMDA0ODA1Ng%3D%3D.2)](https://www.youtube.com/watch?v=JbPPXPIKfkE) ***".$user." dice:*** ".$_POST['text']."\"}";
-                        $status = enviarMensaje($string);
-
+                        $string = "payload={\"username\": \"@".$user."\", \"text\": \"## [![matterostbost](http://scontent.cdninstagram.com/t51.2885-15/s480x480/e35/13549493_1060050124082715_458734665_n.jpg?ig_cache_key=MTI4MzczMDc4NDgzMDA0ODA1Ng%3D%3D.2)](".$_SERVER['PHP_SELF'].") ***".$user." dice:*** ".$text."\"}";
                     }
                     else{
-                        $string = "payload={\"username\": \"@".$user."\", \"text\": \"## ***".$user." dice:*** ".$_POST['text']."\"}";
-                        $status = enviarMensaje($string);
-
+                        $string = "payload={\"username\": \"@".$user."\", \"text\": \"## ***".$user." dice:*** ".$text."\"}";
                     }
+                    $status = enviarMensaje($string);
                 }
 
             }
         }
 
-        if($status != false){
+        if($status>=200 && $status<300){
             header("Location: index.php?status=ok&code=".$status);
         }
         else{
