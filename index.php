@@ -15,13 +15,13 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <label for="text">Digite el mensaje:</label>
-                            <textarea rows="3" autocorrect="off" autocapitalize="off" name="text" value="" placeholder="Escriba aqui el mensaje"></textarea>
+                            <textarea class="inputs" rows="3" autocorrect="off" autocapitalize="off" name="text" value="" placeholder="Escriba aqui el mensaje"></textarea>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
                             <label for="pswd">Digite la clave:</label>
-                            <input type="password" name="pswd" value="" autocorrect="off" autocapitalize="off" placeholder="Memes">
+                            <input class="inputs" type="password" name="pswd" value="" autocorrect="off" autocapitalize="off" placeholder="Memes">
                         </div>
                     </div>
                     <div class="row">
@@ -34,3 +34,12 @@
         </div>
     </body>
 </html>
+<script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+<script type="text/javascript">
+$('.inputs').keyup(function (e) {
+     if (e.which === 13) {
+         var index = $('.inputs').index(this) + 1;
+         $('.inputs').eq(index).focus();
+     }
+ });
+</script>
