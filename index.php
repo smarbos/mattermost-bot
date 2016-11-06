@@ -15,7 +15,7 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <label for="text">Digite el mensaje:</label>
-                            <textarea class="inputs" rows="3" autocorrect="off" autocapitalize="off" name="text" value="" placeholder="Escriba aqui el mensaje"></textarea>
+                            <textarea autofocus class="inputs" rows="3" autocorrect="off" autocapitalize="off" name="text" value="" placeholder="Escriba aqui el mensaje"></textarea>
                         </div>
                     </div>
                     <div class="row">
